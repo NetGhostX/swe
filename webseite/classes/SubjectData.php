@@ -76,6 +76,46 @@ class SubjectData
     }
 
     /**
+     * Erstellt ein neues Fach aus API-Anfragedaten. Es wird noch nichts gespeichert!
+     * @param array $data Die API-Anfragedaten
+     * @return SubjectData|false Neues Fach oder false, wenn ein Fehler auftritt
+     */
+    public static function createFromApiData(array $data): SubjectData|false
+    {
+        if (!isset($data['id'], $data['displayName'], $data['description'], $data['color'], $data['icon'])) {
+            return false;
+        }
+
+        return self::createNew(
+            $data['id'],
+            $data['displayName'],
+            $data['description'],
+            $data['color'],
+            $data['icon'],
+            []
+        );
+    }
+
+    /**
+     * Aktualisiert ein bestehendes Fach aus API-Anfragedaten
+     * @param array $data Die API-Anfragedaten
+     * @return bool true, wenn erfolgreich, sonst false
+     */
+    public function updateFromApiData(array $data): bool
+    {
+        if (!isset($data['displayName'], $data['description'], $data['color'], $data['icon'])) {
+            return false;
+        }
+
+        $this->setDisplayName($data['displayName']);
+        $this->setDescription($data['description']);
+        $this->setColor($data['color']);
+        $this->setIcon($data['icon']);
+
+        return true;
+    }
+
+    /**
      * Prüft, ob das Thema zu den angegebenen IDs existiert
      * @param string $subjectId ID des Faches
      * @return bool true, wenn es existiert, sonst false

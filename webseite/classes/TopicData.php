@@ -104,6 +104,47 @@ class TopicData
     }
 
     /**
+     * Erstellt ein neues Thema aus API-Anfragedaten. Es wird noch nichts gespeichert!
+     * @param array $data Die API-Anfragedaten
+     * @return TopicData|false Neues Thema oder false, wenn ein Fehler auftritt
+     */
+    public static function createFromApiData(array $data): TopicData|false
+    {
+        if (!isset($data['id'], $data['subjectId'], $data['displayName'], $data['icon'], $data['description'], $data['article'])) {
+            return false;
+        }
+
+        return self::createNew(
+            $data['id'],
+            $data['subjectId'],
+            $data['displayName'],
+            $data['icon'],
+            $data['description'],
+            [],
+            $data['article']
+        );
+    }
+
+    /**
+     * Aktualisiert ein bestehendes Thema aus API-Anfragedaten
+     * @param array $data Die API-Anfragedaten
+     * @return bool true, wenn erfolgreich, sonst false
+     */
+    public function updateFromApiData(array $data): bool
+    {
+        if (!isset($data['displayName'], $data['icon'], $data['description'], $data['article'])) {
+            return false;
+        }
+
+        $this->setDisplayName($data['displayName']);
+        $this->setIcon($data['icon']);
+        $this->setDescription($data['description']);
+        $this->setArticle($data['article']);
+
+        return true;
+    }
+
+    /**
      * Prüft, ob das Thema zu den angegebenen IDs existiert
      * @param string $subjectId ID des Faches
      * @param string $topicId ID des Themas
