@@ -1,0 +1,9 @@
+{
+    "displayName": "Rechnen mit Klammern",
+    "icon": "fa-code",
+    "description": "Beim Rechnen mit Klammern werden die Rechenoperationen innerhalb der Klammern zuerst ausgeführt, bevor die restlichen Berechnungen im Ausdruck vorgenommen werden, um die korrekte Reihenfolge der Rechenschritte einzuhalten.",
+    "relatedTopics": [
+        "punkt-vor-strichrechnung",
+        "bruchrechnung"
+    ]
+}

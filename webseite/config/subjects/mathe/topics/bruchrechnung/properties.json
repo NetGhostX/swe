@@ -1,0 +1,11 @@
+{
+    "displayName": "Bruchrechnung",
+    "icon": "fa-chart-pie",
+    "description": "Die Bruchrechnung ist ein Teil der Mathematik, der das Rechnen mit Brüchen beinhaltet, also das Teilen eines Ganzen in gleich große Teile, und umfasst Operationen wie Addition, Subtraktion, Multiplikation und Division von Brüchen.",
+    "relatedTopics": [
+        "schriftliches-multiplizieren",
+        "schriftliches-dividieren",
+        "punkt-vor-strichrechnung",
+        "rechnen-mit-klammern"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "displayName": "Schriftliches Multiplizieren",
+    "icon": "fa-x",
+    "description": "Schriftliches Multiplizieren ist eine Rechenmethode, bei der zwei Zahlen schrittweise multipliziert werden, indem man die einzelnen Stellen der Zahlen nacheinander verrechnet, die Teilergebnisse notiert und am Ende addiert, um das Gesamtergebnis zu erhalten.",
+    "relatedTopics": [
+        "schriftliches-dividieren"
+    ]
+}

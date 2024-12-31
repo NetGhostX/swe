@@ -1,0 +1,221 @@
+/* Corporate Design Colors */
+:root {
+    --primary-color: #5265A0; /* HSGG Blau */
+    --secondary-color: #323966; /* Dunkel Blau */
+    --background-color: #F3F4F6; /* Gray-50 */
+    --text-color: #1F2937; /* Gray-900 */
+    --accent-color: #62a1f4; /* Green */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Left Sidebar Styles */
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    padding: 2rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease;
+    z-index: 40;
+}
+
+.sidebar-header {
+    color: white;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sidebar-header i {
+    font-size: 2rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transform: translateX(5px);
+}
+
+.nav-link i {
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    padding: 2rem;
+    flex: 1;
+}
+
+
+/* Content Card Styles */
+.content-card {
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    /*box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);*/
+    box-shadow: 2px 4px 6px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.content-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content-text {
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+/* Add these styles for the related-topics section */
+.related-topics {
+    padding: 1.25rem;
+    border-radius: 12px;
+}
+
+.related-topics h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.related-topics ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.related-topics li {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.related-topics li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.related-topics a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Exercise Section Styles */
+.exercise-section {
+    padding: 1.5rem;
+    border-radius: 12px;
+    /*color: white;*/
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.exercise-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1));
+    pointer-events: none;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    /*color: white;*/
+    padding: 0.75rem 1.25rem;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 0.5rem;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.download-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .menu-toggle {
+        display: flex !important;
+    }
+}
+
+@media (min-width: 1025px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* Active nav link style */
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-weight: 600;
+}
+
+/* List style improvement */
+.content-text li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.content-text li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}

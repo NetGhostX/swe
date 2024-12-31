@@ -1,0 +1,24 @@
+[
+    {
+        "text": "34 + 26 = ?",
+        "vars": {
+            "?": "60",
+            "x": "5",
+            "y": "2"
+        }
+    },
+    {
+        "text": "a + b = c",
+        "vars": {
+            "a": "1",
+            "b": "2",
+            "c": "4"
+        }
+    },
+    {
+        "text": "Wie schreibt man nähmlich richtig?",
+        "vars": {
+            "?": "nämlich"
+        }
+    }
+]

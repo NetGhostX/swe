@@ -1,0 +1,8 @@
+{
+    "displayName": "Schriftliches Dividieren",
+    "icon": "fa-divide",
+    "description": "Schriftliches Dividieren ist eine Methode zur schrittweisen Aufteilung einer Zahl durch eine andere, wobei man die Teilschritte nacheinander schriftlich notiert, um das Ergebnis systematisch zu berechnen.",
+    "relatedTopics": [
+        "schriftliches-multiplizieren"
+    ]
+}

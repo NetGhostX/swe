@@ -1,0 +1,97 @@
+/* styles.css */
+
+/* Corporate Design Colors */
+:root {
+    --primary-color: #5265A0; /* HSGG Blau */
+    --secondary-color: #323966; /* Dunkel Blau */
+    --background-color: #F3F4F6; /* Gray-50 */
+    --text-color: #1F2937; /* Gray-900 */
+    --accent-color: #62a1f4; /* Green */
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Keyframes and animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes blob {
+    0%, 100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    }
+    33% {
+        border-radius: 72% 28% 30% 70% / 53% 51% 49% 47%;
+    }
+    66% {
+        border-radius: 38% 62% 63% 37% / 46% 48% 52% 54%;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* General styles */
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.card-hover:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.gradient-border {
+    position: relative;
+    background: linear-gradient(white, white) padding-box,
+    linear-gradient(45deg, #7C3AED, #F59E0B) border-box;
+    border: 4px solid transparent;
+    border-radius: 1rem;
+}
+
+.blob {
+    animation: blob 7s infinite;
+    filter: blur(60px); /* Increased blur value */
+    background: var(--accent-color); /* Ensure background color is set */
+    padding: 50px;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+}
+
+.scroll-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Imprint page styles */
+.content {
+    margin: auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}

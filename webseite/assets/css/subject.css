@@ -1,0 +1,380 @@
+/* Subject page styles */
+
+/* Corporate Design Colors */
+:root {
+    --primary-color: #5265A0; /* HSGG Blau */
+    --secondary-color: #323966; /* Dunkel Blau */
+    --background-color: #F3F4F6; /* Gray-50 */
+    --text-color: #1F2937; /* Gray-900 */
+    --accent-color: #62a1f4; /* Green */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    padding: 2rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease;
+    z-index: 40;
+}
+
+.sidebar-header {
+    color: white;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sidebar-header i {
+    font-size: 2rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+/* Active nav link style */
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transform: translateX(5px);
+}
+
+.nav-link i {
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}
+
+.search-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    width: auto;
+}
+
+.search-box {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 2px solid #E2E8F0;
+    border-radius: 12px;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.main-content {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    padding-top: 3rem;
+    transition: margin-left 0.3s ease;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* Back to original 380px for desktop */
+    gap: 2rem; /* Back to original 2rem gap */
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.topic-card {
+    border-radius: 20px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 2px 4px 6px 2px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.topic-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.topic-card:hover {
+    transform: translateY(-5px);
+    /*box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);*/
+}
+
+.topic-card:hover::before {
+    transform: scaleX(1);
+}
+
+.topic-header {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.topic-icon {
+    font-size: 2.5rem;
+    margin-right: 1rem;
+}
+
+
+.topic-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.topic-description {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.related-topics {
+    margin: 0;
+}
+
+.download-section {
+    margin-top: auto;
+}
+
+.progress-container {
+    margin-top: 1.5rem;
+}
+
+.download-section h4 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.download-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.download-btn {
+    padding: 0.75rem 1.25rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+    flex: 1;
+    min-width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transform: translateY(0); /* Set initial transform state */
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+}
+
+@media (min-width: 1025px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .sidebar {
+        transform: translateX(0);
+    }
+
+    .search-container {
+        left: 280px; /* Sidebar width */
+        width: calc(100% - 280px);
+    }
+
+    .main-content {
+        margin-left: 280px;
+        width: calc(100% - 280px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .search-container {
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: flex !important;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .search-container {
+        padding: 0.75rem;
+    }
+
+    .search-box {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .download-links {
+        flex-direction: column;
+    }
+
+    .download-btn {
+        width: 100%;
+    }
+
+    .container {
+        padding: 0.5rem;
+    }
+
+    .topic-card {
+        margin: 0 0.5rem;
+    }
+}
+
+
+/* Add floating animation for icons */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.theme-toggle:hover {
+    transform: rotate(45deg);
+}
+
+/* Update animation keyframes */
+@keyframes cardAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.download-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.download-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Add these styles for the related-topics section */
+.related-topics {
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.related-topics h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.related-topics ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.related-topics li {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.related-topics li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.related-topics a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Improved topic card hover */
+.topic-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.topic-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,9 @@
+{
+    "displayName": "Punkt- vor Strichrechnung",
+    "icon": "fa-plus-minus",
+    "description": "Die Regel \"Punkt vor Strichrechnung\" besagt, dass bei mathematischen Berechnungen Multiplikation und Division immer vor Addition und Subtraktion ausgeführt werden müssen, um das richtige Ergebnis zu erhalten.",
+    "relatedTopics": [
+        "rechnen-mit-klammern",
+        "bruchrechnung"
+    ]
+}

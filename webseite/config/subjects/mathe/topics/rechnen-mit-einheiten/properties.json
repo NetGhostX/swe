@@ -1,0 +1,9 @@
+{
+    "displayName": "Rechnen mit Einheiten",
+    "icon": "fa-clock",
+    "description": "Rechnen mit Einheiten bedeutet, Größen mit verschiedenen Maßeinheiten wie Meter, Kilogramm oder Liter rechnerisch zu verarbeiten, dabei die Einheiten korrekt umzurechnen und sicherzustellen, dass das Ergebnis in der richtigen Einheit angegeben wird.",
+    "relatedTopics": [
+        "schriftliches-dividieren",
+        "bruchrechnung"
+    ]
+}
