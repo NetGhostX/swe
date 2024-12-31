@@ -74,8 +74,20 @@ export class SubjectManager {
             const subject = new SubjectModel(subjectData);
             subject.validate();
 
-            await this.storage.saveSubject(subject.toJSON());
-            this.updateSubjectsList(subject.toJSON());
+            const response = await fetch('api.php/subjects', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(subject.toJSON())
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to create subject');
+            }
+
+            const result = await response.json();
+            this.handleApiResponse(result);
             closeModal('subjectModal');
             e.target.reset();
             
@@ -135,5 +147,13 @@ export class SubjectManager {
             </div>
         `;
         return div;
+    }
+
+    handleApiResponse(response) {
+        if (response.message) {
+            showNotification(response.message, 'success');
+        } else if (response.error) {
+            showNotification(response.error, 'error');
+        }
     }
 }

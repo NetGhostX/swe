@@ -154,7 +154,7 @@ export class TopicManager {
         }
     }
 
-    handleTopicSubmit(e) {
+    async handleTopicSubmit(e) {
         e.preventDefault();
         const formData = new FormData(e.target);
         const content = this.quill.root.innerHTML;
@@ -164,9 +164,43 @@ export class TopicManager {
             throw new Error('Bitte wählen Sie ein Fach aus');
         }
 
-        // Add your topic saving logic here
-        
-        closeModal('topicModal');
+        const topicData = {
+            id: formData.get('id') || crypto.randomUUID(),
+            subjectId: subjectId,
+            displayName: formData.get('displayName'),
+            icon: formData.get('icon'),
+            description: formData.get('description'),
+            article: content
+        };
+
+        try {
+            const response = await fetch('api.php/topics', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(topicData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to create topic');
+            }
+
+            const result = await response.json();
+            this.handleApiResponse(result);
+            closeModal('topicModal');
+            e.target.reset();
+        } catch (error) {
+            throw new Error(`Failed to create topic: ${error.message}`);
+        }
+    }
+
+    handleApiResponse(response) {
+        if (response.message) {
+            showNotification(response.message, 'success');
+        } else if (response.error) {
+            showNotification(response.error, 'error');
+        }
     }
 
     clearEditor() {
